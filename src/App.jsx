@@ -1,15 +1,15 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from './assets/vite.svg';
+import heroImg from './assets/hero.png';
+import './App.css';
 
-//const App=()=><h1>Our First Test</h1>  
+//const App=()=><h1>Our First Test</h1>
 const App = () => {
-  const [heading, setHeading] = useState("Magnificent Monkeys");
+  const [heading, setHeading] = useState('Magnificent Monkeys');
 
   const clickHandler = () => {
-    setHeading("Radical Rhinos");
+    setHeading('Radical Rhinos');
   };
 
   return (
@@ -20,7 +20,7 @@ const App = () => {
       <h1>{heading}</h1>
     </>
   );
-};  
+};
 
 /*{
   const [count, setCount] = useState(0)
@@ -137,4 +137,4 @@ const App = () => {
   )
 }*/
 
-export default App
+export default App;

@@ -1,8 +1,13 @@
-import { Outlet } from "react-router-dom";
+import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
-export default function Mainpage(){
+export default function Mainpage() {
 
-    return(<main className="flex justify-center">
-        <Outlet/>
-    </main>)
+const [cart , setcart] = useState([]);
+
+  return (
+    <main className="flex justify-center">
+      <Outlet context={{cart,setcart}}/>
+    </main>
+  );
 }
