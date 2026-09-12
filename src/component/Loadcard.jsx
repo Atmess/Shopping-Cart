@@ -2,21 +2,15 @@ import { useEffect, useState } from 'react';
 
 export default function useLoadcard() {
   const [card, setcard] = useState([]);
-  const [mockcard, setmockcard] = useState([]);
+  const [allcard, setallcard] = useState([]);
   const [loading, setloading] = useState(true);
   const [error, seterror] = useState(null);
 
   useEffect(() => {
-    fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php?fname=Twin')
+    fetch('https://db.ygoprodeck.com/api/v7/cardinfo.php')
       .then((response) => response.json())
       .then((data) => {
-        const twinCards = data.data.filter((card) => {
-          return (
-            card.name.includes('Evil★Twin') || card.name.includes('Live☆Twin')
-          );
-        });
-
-        const formatdata = twinCards.map((item) => {
+        const formatdata = data.data.map((item) => {
           return {
             id: item.id,
             name: item.name,
@@ -25,14 +19,22 @@ export default function useLoadcard() {
             desc: item.desc,
             type: item.type,
             frametype: item.frameType,
+            sets:item.card_sets?  item.card_sets[Math.floor(Math.random()*item.card_sets.length)]:"promo / No Set"            
           };
         });
 
-        setcard(formatdata);
-        setmockcard(twinCards);
+        const twinCards = formatdata.filter((card) => {
+          return (
+            card.name.includes('Evil★Twin') || card.name.includes('Live☆Twin')
+          );
+        });
+        
+        const sufflecard = formatdata.sort(()=>Math.random()-0.5)
+        setallcard(sufflecard);
+        setcard(sufflecard.slice(0,20));
       })
       .catch((error) => seterror(error))
       .finally(() => setloading(false));
   }, []);
-  return { card, mockcard, error, loading };
+  return { card, allcard, error, loading };
 }

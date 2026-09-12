@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import Header from './Haeder';
-import Mainpage from './Mainpage';
-import { Outlet } from 'react-router-dom';
+
+import Header from './component/Haeder';
+import Mainpage from './component/Mainpage';
+
 
 export default function Main() {
   return (
