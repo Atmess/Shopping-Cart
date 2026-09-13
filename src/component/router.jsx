@@ -7,6 +7,7 @@ import Single from './Single';
 import StructureDeck from './Strukturedeck';
 import SealedProduct from './SealedProduck';
 import Accessories from './Accessories';
+import MyDeck from './MyDeck';
 
 
 const routes = [
@@ -21,7 +22,8 @@ const routes = [
          { path:'/shop', element:<Single/>},
         { path:'/shop/struckture', element:<StructureDeck/>},
         {path:'/shop/sealed', element:<SealedProduct/>},
-        {path:'/shop/accessories', element:<Accessories/>},],
+        {path:'/shop/accessories', element:<Accessories/>},
+        {path:'/shop/mydeck', element:<MyDeck/>}],
        },
       { path: '/cart', element: <Cart /> },
     ],

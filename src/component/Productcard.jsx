@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Productcard({item , addToCart }){
+export default function Productcard({item , addToCart,addToDeck }){
     const [quantity , setquantity]= useState(1)
 
     return (
@@ -44,12 +44,17 @@ export default function Productcard({item , addToCart }){
       </div>
 
       {/* 4. text-sm on mobile ensures "Add To Cart" doesn't overflow */}
+      <div className="flex flex-row gap-2">
       <button 
         onClick={() => addToCart(item, quantity)}
         className="w-full bg-blue-500 hover:bg-blue-600 text-white py-1.5 md:py-2 rounded font-bold text-sm md:text-base transition"
       >
         Add To Cart
       </button>
+      <button  onClick={()=>{addToDeck(item,quantity)}} className="w-full bg-blue-500 hover:bg-blue-600 text-white py-1.5 md:py-2 rounded font-bold text-sm md:text-base transition">add to deck</button>
+
+      </div>
+
     </div>
   </div>
 );
