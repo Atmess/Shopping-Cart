@@ -4,7 +4,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import routes from './component/router';
 
-
 const router = createBrowserRouter(routes);
 
 createRoot(document.getElementById('root')).render(

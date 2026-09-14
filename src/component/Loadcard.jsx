@@ -19,7 +19,11 @@ export default function useLoadcard() {
             desc: item.desc,
             type: item.type,
             frametype: item.frameType,
-            sets:item.card_sets?  item.card_sets[Math.floor(Math.random()*item.card_sets.length)]:"promo / No Set"            
+            sets: item.card_sets
+              ? item.card_sets[
+                  Math.floor(Math.random() * item.card_sets.length)
+                ]
+              : 'promo / No Set',
           };
         });
 
@@ -28,10 +32,10 @@ export default function useLoadcard() {
             card.name.includes('Evil★Twin') || card.name.includes('Live☆Twin')
           );
         });
-        
-        const sufflecard = formatdata.sort(()=>Math.random()-0.5)
+
+        const sufflecard = formatdata.sort(() => Math.random() - 0.5);
         setallcard(sufflecard);
-        setcard(sufflecard.slice(0,20));
+        setcard(sufflecard.slice(0, 20));
       })
       .catch((error) => seterror(error))
       .finally(() => setloading(false));

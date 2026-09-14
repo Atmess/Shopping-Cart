@@ -9,7 +9,6 @@ import SealedProduct from './SealedProduck';
 import Accessories from './Accessories';
 import MyDeck from './MyDeck';
 
-
 const routes = [
   {
     path: '/',
@@ -17,18 +16,20 @@ const routes = [
     errorElement: <ErrorPage />,
     children: [
       { path: '/', element: <Home /> },
-      { path: '/shop', element: <Shop/> ,
-        children:[
-         { path:'/shop', element:<Single/>},
-        { path:'/shop/struckture', element:<StructureDeck/>},
-        {path:'/shop/sealed', element:<SealedProduct/>},
-        {path:'/shop/accessories', element:<Accessories/>},
-        {path:'/shop/mydeck', element:<MyDeck/>}],
-       },
+      {
+        path: '/shop',
+        element: <Shop />,
+        children: [
+          { path: '/shop', element: <Single /> },
+          { path: '/shop/struckture', element: <StructureDeck /> },
+          { path: '/shop/sealed', element: <SealedProduct /> },
+          { path: '/shop/accessories', element: <Accessories /> },
+          { path: '/shop/mydeck', element: <MyDeck /> },
+        ],
+      },
       { path: '/cart', element: <Cart /> },
     ],
   },
-
 ];
 
 export default routes;
